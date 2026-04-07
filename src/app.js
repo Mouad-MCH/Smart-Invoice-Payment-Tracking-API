@@ -2,6 +2,7 @@ import express from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
 import morgan from 'morgan';
+import authRoutes from './routes/auth.routes.js';
 
 
 const app = express();
@@ -17,6 +18,9 @@ app.use('/health', (req, res) => {
         message: "server is running"
     })
 })
+
+
+app.use('/api/auth', authRoutes);
 
 
 export { app }

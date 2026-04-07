@@ -1,27 +1,29 @@
-import User from "../models/User.js"
+import Users from "../models/User.js"
 import { signToken } from "../utils/JWT.js";
 import { comparPassword, hashPassword } from "../utils/password.js"
 
 
 
 export const createUser = async (data) => {
+    console.log(typeof Users)
+    console.log(Users.modelName)
 
     const password = await hashPassword(data.password);
 
-    const newUser = await User.create({
+    const newUser = await Users.create({
         ...data,
         password
-    }).select('-password')
+    })
 
     return newUser
 }
 
-export const login = async (data) => {
-    const user = await findOne({email: data.email}).select('+password')
+export const login_s = async (data) => {
+    const user = await Users.findOne({email: data.email}).select('+password')
     
-    const vrifyPassword = await comparPassword(data.password, user.password);
+    const verifyPassword = await comparPassword(data.password, user.password);
 
-    if(!vrifyPassword) {
+    if(!verifyPassword) {
         return { success: false, message: 'password incorrect' }
     }
 

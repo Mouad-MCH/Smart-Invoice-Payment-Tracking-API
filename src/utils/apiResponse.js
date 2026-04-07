@@ -1,7 +1,7 @@
 
 
 // 200 ok
-export const ok = (res, data= {}, message = "Success") {
+export const ok = (res, data= {}, message = "Success") => {
     return res.status(200).json({
         success: true,
         message,
@@ -35,6 +35,14 @@ export const notFound = (res, message = 'Resource not Found') => {
         message,
     });
 };
+
+// 401 Unauthorized 
+export const unauthorized = (res, message = 'Unauthorized. Please log in.') => {
+    return res.status(401).json({
+        success: false,
+        message,
+    })
+}
 
 // 500 Internal Server Error
 export const serverError = (res, message = 'Internal server error') => {

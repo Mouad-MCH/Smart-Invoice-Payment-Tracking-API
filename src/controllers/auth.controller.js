@@ -1,4 +1,4 @@
-import { createUser, login } from "../services/auth.service.js"
+import { createUser, login_s } from "../services/auth.service.js"
 import { created, forbidden, ok, serverError } from "../utils/apiResponse.js";
 
 
@@ -9,13 +9,13 @@ export const register = async (req, res) => {
 
         created(res, user, 'user created successfully')
     }catch(error) {
-        serverError(res)
+        serverError(res, error.message)
     }
 }
 
 export const login = async (req, res) => {
     try {
-        const user = await login(req.body);
+        const user = await login_s(req.body);
 
         if(!user.success) {
             return forbidden(res, user.message)

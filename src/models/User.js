@@ -17,8 +17,8 @@ const userSchema = new mongoose.Schema({
 
     password: {
         type: String,
-        min: [8, 'passwort must be gte 8'],
-        required: [true, 'password is reauired' ]
+        min: [8, 'password must be gte 8'],
+        required: [true, 'password is required' ]
     },
 
     role: {
@@ -30,7 +30,7 @@ const userSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 
-const User = mongoose.model("Users", userSchema);
+const Users = mongoose.model("Users", userSchema);
 
-export { User }
-export default { User }
+export { Users }
+export default Users
