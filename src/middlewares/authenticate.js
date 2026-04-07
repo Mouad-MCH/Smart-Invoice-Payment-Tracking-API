@@ -19,7 +19,7 @@ export const authMiddleware = async (req, res, next) => {
     unauthorized(res, 'Invalid or expired token. Please log in again.')
   }
 
-  const user = await Users.findById(decoded._id);
+  const user = await Users.findById(decoded.id);
 
   if(!user) {
     return notFound(res, 'user Not Found')

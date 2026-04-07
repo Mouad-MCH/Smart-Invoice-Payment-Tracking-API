@@ -41,5 +41,5 @@ const supplierSchema = new mongoose.Schema({
 
 const Suppliers = mongoose.model('Suppliers', supplierSchema);
 
-export { Supplier }
-export default { Supplier }
+export { Suppliers }
+export default  Suppliers 

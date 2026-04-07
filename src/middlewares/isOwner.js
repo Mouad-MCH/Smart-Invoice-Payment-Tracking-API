@@ -12,7 +12,7 @@ export const verifySupplierOwnership = async (req, res, next) => {
       return notFound(res, 'supplier not found')
     }
 
-    if (supplier.userId.toString() !== req.user._id) {
+    if (supplier.userId.toString() !== req.user.id) {
       return forbidden(res)
     }
 
@@ -32,7 +32,7 @@ export const verifyIvoiceOwnership = async (req, res, next) => {
       return notFound(res, 'Invoice not found')
     }
 
-    if (invoice.userId.toString() !== req.user._id) {
+    if (invoice.userId.toString() !== req.user.id) {
       return forbidden(res)
     }
 

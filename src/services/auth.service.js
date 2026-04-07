@@ -5,8 +5,6 @@ import { comparPassword, hashPassword } from "../utils/password.js"
 
 
 export const createUser = async (data) => {
-    console.log(typeof Users)
-    console.log(Users.modelName)
 
     const password = await hashPassword(data.password);
 
@@ -28,7 +26,7 @@ export const login_s = async (data) => {
     }
 
     const token = signToken({
-        _id: user._id,
+        id: user.id,
         email: user.email,
         role: user.role
     });

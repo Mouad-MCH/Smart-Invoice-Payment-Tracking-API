@@ -36,8 +36,8 @@ const paymentSchema = new mongoose.schema({
 })
 
 
-const Payment = mongoose.model('Payments', paymentSchema);
+const Payments = mongoose.model('Payments', paymentSchema);
 
 
-export { Payment }
-export default Payment
+export { Payments }
+export default Payments

@@ -3,6 +3,7 @@ import helmet from 'helmet';
 import cors from 'cors';
 import morgan from 'morgan';
 import authRoutes from './routes/auth.routes.js';
+import supplierRoutes from './routes/supplier.routes.js'
 
 
 const app = express();
@@ -21,6 +22,7 @@ app.use('/health', (req, res) => {
 
 
 app.use('/api/auth', authRoutes);
+app.use('/api/suppliers', supplierRoutes)
 
 
 export { app }
