@@ -8,8 +8,8 @@ import { userExist } from '../middlewares/errHandler.js';
 
 const router = express.Router();
 
-router.post('/register', validateBody(registerSchema), userExist, register);
-router.post('/login', validateBody(loginSchema), login);
+router.post('/register', validateBody(registerSchema), register);
+router.post('/login', validateBody(loginSchema), userExist, login);
 
 
 

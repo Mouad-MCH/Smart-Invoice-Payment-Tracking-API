@@ -26,7 +26,7 @@ export const verifySupplierOwnership = async (req, res, next) => {
 
 export const verifyIvoiceOwnership = async (req, res, next) => {
   try {
-    const invoice = await Invoices.findById()
+    const invoice = await Invoices.findById(req.params.id)
 
     if (!invoice) {
       return notFound(res, 'Invoice not found')

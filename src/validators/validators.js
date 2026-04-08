@@ -1,6 +1,5 @@
 import { z } from 'zod'
 
-
 export const registerSchema = z.object({
   name: z.string().min(2).trim(),
   email: z.string().email(),
@@ -29,4 +28,18 @@ export const updateSupplierSchema = z.object({
   phone: z.string().optional(),
   address: z.string().max(255).optional(),
   contact: z.string().optional(),
+})
+
+export const createInvoiceSchema = z.object({
+  supplierId: z.string(),
+  amount: z.number('amount must be number').positive('amount must be positive').min(0.01),
+  dueDate: z.coerce.date(),
+  description: z.string().max(255).optional(),
+})
+
+export const updateInvoiceSchema = z.object({
+  supplierId: z.string().optional(),
+  amount: z.number('amount must be number').positive('amount must be positive').min(0.01).optional(),
+  dueDate: z.coerce.date().optional(),
+  description: z.string().max(255).optional().optional(),
 })

@@ -1,16 +1,16 @@
 import mongoose from 'mongoose';
 
 
-const paymentSchema = new mongoose.schema({
+const paymentSchema = new mongoose.Schema({
   invoiceId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Invoice',
+    ref: 'Invoices',
     required: true
   },
 
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: 'Users',
     required: true
   },
 

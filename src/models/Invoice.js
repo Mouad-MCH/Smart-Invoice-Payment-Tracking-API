@@ -3,13 +3,13 @@ import mongoose from 'mongoose';
 const invoiceSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: 'Users',
     required: true
   },
 
   supplierId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Supplier',
+    ref: 'Suppliers',
     required: true
   },
 
@@ -27,6 +27,12 @@ const invoiceSchema = new mongoose.Schema({
   description: {
     type: String,
     default: null
+  },
+
+  status: {
+    type: String,
+    enum: ['paid', 'unpaid', 'partially_paid', 'overdue'],
+    default: 'unpaid'
   }
 
 }, { timestamps: true })

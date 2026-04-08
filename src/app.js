@@ -4,6 +4,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import authRoutes from './routes/auth.routes.js';
 import supplierRoutes from './routes/supplier.routes.js'
+import invoiceRoutes from './routes/invoice.routes.js'
 
 
 const app = express();
@@ -23,6 +24,7 @@ app.use('/health', (req, res) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/suppliers', supplierRoutes)
+app.use('/api/invoices', invoiceRoutes)
 
 
 export { app }

@@ -28,7 +28,7 @@ export const userAlradyrExist = async (req, res, next) => {
 }
 
 export const userExist = async (req, res, next) => {
-    const user = await Users.findOne(req.body);
+    const user = await Users.findOne({email: req.body.email});
 
     if(!user) {
         return notFound(res, 'user not Found')
@@ -36,3 +36,18 @@ export const userExist = async (req, res, next) => {
 
     next() 
 }
+
+
+// globale error
+
+class AppError extends Error {
+    constructor(message, statusCode) {
+        super(message);
+        this.statusCode = statusCode;
+        this.status = String(statusCode).startsWith('4') ? 'fail' : 'error';
+        Error.captureStackTrace(this, this.constructor)
+    }
+}
+
+
+export { AppError }
