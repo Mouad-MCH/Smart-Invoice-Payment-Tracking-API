@@ -43,3 +43,11 @@ export const updateInvoiceSchema = z.object({
   dueDate: z.coerce.date().optional(),
   description: z.string().max(255).optional().optional(),
 })
+
+export const recordPaymentSchema = z.object({
+  amount: z.number().positive().min(0.01, 'amount must be gt 0'),
+  paymentDate: z.coerce.date(),
+  note: z.string().default(null).optional(),
+  mode: z.enum(['especes', 'cheque', 'virement']),
+})
+

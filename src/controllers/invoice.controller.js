@@ -11,7 +11,7 @@ export const createInvoice = async (req, res) => {
         created(res, invoice,'invoice created')
     }catch(error) {
         if(error.status === 'fail') {
-            res.status(error.statusCode).json({
+            return res.status(error.statusCode).json({
                 success: false,
                 message: error.message
             })
@@ -27,7 +27,7 @@ export const updateInvoice = async (req, res) => {
         ok(res, invoice, 'invoice Updated Successfully')
     }catch (error) {
         if(error.status === 'fail') {
-            res.status(error.statusCode).json({
+            return res.status(error.statusCode).json({
                 success: false,
                 message: error.message
             })
@@ -46,7 +46,7 @@ export const deleteInvoice = async (req, res) => {
 
     }catch(error) {
         if(error.status === 'fail') {
-            res.status(error.statusCode).json({
+            return res.status(error.statusCode).json({
                 success: false,
                 message: error.message
             })

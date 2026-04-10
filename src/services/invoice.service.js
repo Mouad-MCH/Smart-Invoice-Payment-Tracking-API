@@ -15,7 +15,7 @@ export const createInvoice_s = async (userId, data) => {
     }
 
     if(!supplier.userId.equals(userId)) {
-        throw new AppError('Forbidden. This supplier does not belong to you.')
+        throw new AppError('Forbidden. This supplier does not belong to you.', 403)
     }
 
     const invoice = await Invoices.create({

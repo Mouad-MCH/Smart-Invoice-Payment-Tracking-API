@@ -25,6 +25,10 @@ const paymentSchema = new mongoose.Schema({
     required: [true, 'payment date is required']
   },
 
+  note: {
+    type: String,
+  },
+
   mode: {
     type: String,
     enum: {

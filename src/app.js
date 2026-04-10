@@ -5,7 +5,10 @@ import morgan from 'morgan';
 import authRoutes from './routes/auth.routes.js';
 import supplierRoutes from './routes/supplier.routes.js'
 import invoiceRoutes from './routes/invoice.routes.js'
-
+import paymentRoutes from './routes/payment.routes.js'
+import statsRoutes from './routes/stats.routes.js'
+import { errHandler } from './middlewares/errHandler.js';
+import { notFoundMiddleware } from './middlewares/notFound.js'
 
 const app = express();
 app.use(helmet());
@@ -25,6 +28,11 @@ app.use('/health', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/suppliers', supplierRoutes)
 app.use('/api/invoices', invoiceRoutes)
+app.use('/api/invoice', paymentRoutes)
+app.use('/api/', statsRoutes)
+
+app.use(notFoundMiddleware)
+app.use(errHandler)
 
 
 export { app }
