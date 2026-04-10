@@ -4,6 +4,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import authRoutes from './routes/auth.routes.js';
 import supplierRoutes from './routes/supplier.routes.js'
+import adminRoutes from './routes/admin.routes.js'
 import invoiceRoutes from './routes/invoice.routes.js'
 import paymentRoutes from './routes/payment.routes.js'
 import statsRoutes from './routes/stats.routes.js'
@@ -30,6 +31,7 @@ app.use('/api/suppliers', supplierRoutes)
 app.use('/api/invoices', invoiceRoutes)
 app.use('/api/invoice', paymentRoutes)
 app.use('/api/', statsRoutes)
+app.use('/api/admin', adminRoutes)
 
 app.use(notFoundMiddleware)
 app.use(errHandler)

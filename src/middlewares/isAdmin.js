@@ -7,7 +7,7 @@ export const isAdmin = (role) => {
       return unauthorized(res, 'Authentication required.')
     }
 
-    if (req.user.role !== "Admin") {
+    if (req.user.role !== "admin") {
       return forbidden(res, `Access denied. Required role(s): ${role}.`)
     }
 

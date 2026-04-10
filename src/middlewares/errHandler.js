@@ -38,6 +38,16 @@ export const userExist = async (req, res, next) => {
     next() 
 }
 
+export const clientExist = async (req, res, next) => {
+    const client = await Users.findOne({ _id: req.params.id })
+
+    if (!client) {
+        return notFound(res, 'Client not Found');
+    }
+
+    next()
+}
+
 
 // globale error
 
